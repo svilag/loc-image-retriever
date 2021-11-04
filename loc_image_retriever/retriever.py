@@ -18,7 +18,7 @@ configuration values that "point" the script to the target image collection. The
 the terminal and accepts a number of command line arguments:
 
 1. Required: A < key > (str) value that matches a map key in the companion
-   < loc_maps_config.yml > file. The < 'key' > arg is used to filter the relevant map data
+   < retriever_config.yml > file. The < 'key' > arg is used to filter the relevant map data
    contained in the loaded YAML file.
 
 2. Optional: A < format > (str) value that sets the image extension. Options: 'jpg', 'gif',
@@ -287,7 +287,7 @@ def read_yaml_file(filepath):
         return data
 
 
-def write_file(filepath, data, mode='w'):
+def write_file(filepath, data, mode='w', chunk_size=1024):
     """Writes content to a target file. Override the optional write mode value
     if binary content <class 'bytes'> is to be written to file (i.e., mode='wb')
     or an append operation is intended on an existing file (i.e., mode='a' or 'ab').
@@ -296,13 +296,14 @@ def write_file(filepath, data, mode='w'):
         filepath (str): absolute or relative path to target file
         data (obj): data to be written to the target file
         mode (str): write operation mode
+        chunk_size (int); size of data chunks to stream
 
     Returns:
        None
     """
 
     with open(filepath, mode) as file_object:
-        for chunk in data.iter_content(chunk_size=1024):
+        for chunk in data.iter_content(chunk_size=chunk_size):
             file_object.write(chunk)
 
 
@@ -321,7 +322,7 @@ def main(args):
     output_path = parser.output
 
     # load YAML config
-    filepath = 'loc_maps_config.yml'
+    filepath = 'retriever_config.yml'
     config = read_yaml_file(filepath)
 
     # YAML config values

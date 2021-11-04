@@ -2,15 +2,13 @@
 
 Library of Congress (LoC) image retrieval script.
 
-
-
 The `retriever.py` script retrieves a single volume of map images from the
 [Library of Congress](https://www.loc.gov/). The script relies on `retriever_config.yml` to provide
 configuration values that "point" the script to the target image collection. The script is run from
 the terminal and accepts a number of command line arguments:
 
 1. Required: A `< key >` (`str`) value that matches a map key in the companion
-   `< loc_maps_config.yml >` file. The `< 'key' >` arg is used to filter the relevant map data
+   `< retriever_config.yml >` file. The `< 'key' >` arg is used to filter the relevant map data
    contained in the loaded YAML file.
 
 2. Optional: A `< format >` (`str`) value that sets the image extension. Options: 'jpg', 'gif',
@@ -37,7 +35,7 @@ a log file.
 
 `{scheme}://{server}{/id_prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}`
 
-### LoC URL examples
+## LoC URL examples
 
 `.jpg` (pct:25)
 
