@@ -1,0 +1,136 @@
+---
+protocol: https
+domain: loc.gov
+subdomain: tile
+service_path:
+  jpg: image-services/iiif/service
+  gif: storage-services/service
+  jp2: storage-services/service
+  tif: storage-services/master
+maps:
+  ann_arbor_mi_1925:
+    digital_id: http://hdl.loc.gov/loc.gmd/g4114am.g039091925
+    manifest: https://www.loc.gov/item/sanborn03909_006/manifest.json
+    filename_segments:
+      name:
+        - Map
+        - LOC
+        - Sanborn
+        - Ann_Arbor
+        - MI
+      year: 1925
+      vol: null
+    path_segments:
+      - gmd: gmd:gmd411m:g4114m:g4114am:g039091925
+        id_prefix: 03909_1925-
+        part: null
+        index:
+          start: 0
+          stop: 41
+          zfill_width: 4
+  chelsea_mi_1918:
+    digital_id: http://hdl.loc.gov/loc.gmd/g4114cm.g039611918
+    manifest: https://www.loc.gov/item/sanborn03961_005/manifest.json
+    filename_segments:
+      name:
+        - Map
+        - LOC
+        - Sanborn
+        - Chelsea
+        - MI
+      year: 1918
+      vol: null
+    path_segments:
+      - gmd: gmd:gmd411m:g4114m:g4114cm:g039611918
+        id_prefix: 03961_1918-
+        part: null
+        index:
+          start: 1
+          stop: 6
+          zfill_width: 4
+  jackson_mi_1907:
+    digital_id: http://hdl.loc.gov/loc.gmd/g4114jm.g040571907
+    manifest: https://www.loc.gov/item/sanborn04057_004/manifest.json
+    filename_segments:
+      name:
+        - Map
+        - LOC
+        - Sanborn
+        - Jackson
+        - MI
+      year: 1907
+      vol: null
+    path_segments:
+      - gmd: gmd:gmd411m:g4114m:g4114jm:g040571907
+        id_prefix: 04057_1907-
+        part: null
+        index:
+          start: 0
+          stop: 93
+          zfill_width: 4
+      - gmd: gmd:gmd411m:g4114m:g4114jm:g040571907
+        id_prefix: 04057_1907-Ind
+        part: index
+        index:
+          start: 1
+          stop: 2
+          zfill_width: 0
+  parma_mi_1930:
+    digital_id: http://hdl.loc.gov/loc.gmd/g4114pm.g041441930
+    manifest: https://www.loc.gov/item/sanborn04144_004/manifest.json
+    filename_segments:
+      name:
+        - Map
+        - LOC
+        - Sanborn
+        - Parma
+        - MI
+      year: 1930
+      vol: null
+    path_segments:
+      - gmd: gmd:gmd411m:g4114m:g4114pm:g041441930
+        id_prefix: 04144_1930-
+        part: null
+        index:
+          start: 1
+          stop: 3
+          zfill_width: 4
+  niles_mi_1914:
+    digital_id: http://hdl.loc.gov/loc.gmd/g4114nm.g041291914
+    manifest: https://www.loc.gov/item/sanborn04129_006/manifest.json
+    filename_segments:
+      name:
+        - Map
+        - LOC
+        - Sanborn
+        - Niles
+        - MI
+      year: 1914
+      vol: null
+    path_segments:
+      - gmd: gmd:gmd411m:g4114m:g4114nm:g041291914
+        id_prefix: 04129_1914-
+        part: null
+        index:
+          start: 1
+          stop: 16
+          zfill_width: 4
+  xinjiang_quan_tui_1759:
+    digital_id: http://hdl.loc.gov/loc.gmd/g7823xm.gct00164
+    manifest: https://www.loc.gov/item/2002626723/manifest.json
+    filename_segments:
+      name:
+        - Map
+        - LOC
+        - China
+        - Xinjiang_quan_tu
+      year: 1759
+      vol: null
+    path_segments:
+      - gmd: gmd:gmd7m:g7823m:g7823xm:gct00164
+        id_prefix: ca
+        part: null
+        index:
+          start: 1
+          stop: 23
+          zfill_width: 6
