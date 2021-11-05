@@ -3,29 +3,33 @@
 Library of Congress (LoC) image retrieval script.
 
 The `retriever.py` script retrieves a single volume of map images from the
-[Library of Congress](https://www.loc.gov/). The script relies on `retriever_config.yml` to provide
+[Library of Congress](https://www.loc.gov/). The script relies on `config.yml` to provide
 configuration values that "point" the script to the target image collection. The script is run from
-the terminal and accepts a number of command line arguments:
+the terminal and accepts a number of command line options:
 
-1. Required: A `< key >` (`str`) value that matches a map key in the companion
-   `< retriever_config.yml >` file. The `< 'key' >` arg is used to filter the relevant map data
+1. Required: -k, --key string value that matches a map key in the companion
+   < config.yml > file. The < 'key' > argument is used to filter the relevant map data
    contained in the loaded YAML file.
 
-2. Optional: A `< format >` (`str`) value that sets the image extension. Options: 'jpg', 'gif',
-   'jp2', 'tif'. Default: 'jpg'.
+2. Optional: -f, --format string value that sets the image extension. Options: 'jpg', 'gif',
+   'jp2', 'tif'. Default value = 'jpg'.
 
-3. Optional: A `< size >` (`int`) value that sets the width and height of the image scaled to `n`
+3. Optional: -o, --output string value corresponding to the filepath for local storage of the
+   retrieved images. Default value = './output'.
+
+4. Optional: -q, --quality string value that sets the image quality. Options: 'color', 'grey',
+   'bitonal', 'default'. Default value = 'default'.
+
+5. Optional: -r, --region string value that defines the rectangular portion of the full image to
+   be returned. Region can be specified by pixel coordinates, percentage or by the value “full”,
+   which specifies that the entire image should be returned. Default value = 'full'.
+
+6. Optional: -rd, --rotation_degrees integer value that sets the image rotation by degrees (0-360).
+   Default value = 0.
+
+7. Optional: -s, --size integer value that sets the width and height of the image scaled to n
    percent of the width and height of the extracted region ('pct:n'). The aspect ratio of the
-   returned image is the same as that of the extracted region. Default value = `25`.
-
-4. Optional: A `< rotation >` (`int`) value that sets the image rotation by degrees (`0-360`).
-   Default value = `0`.
-
-5. Optional: A `< quality >` (`str`) value that sets the image quality. Options: 'color', 'grey',
-   'bitonal', 'default'. Default value = `'default'`.
-
-6. Optional: A `< output >` (`str`) value corresponding to the filepath for local storage of the
-   retrieved images. Default value = `'./output'`.
+   returned image is the same as that of the extracted region. Default value = 25.
 
 Once configured, the script retrieves the target images, renames the downloaded files,
 stores them locally in the `< output >` location, and logs the process both via the terminal and
