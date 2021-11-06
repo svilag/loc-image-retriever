@@ -81,7 +81,7 @@ def create_url(parser, config, gmd, id_prefix, num):
             f"{config['protocol']}",
             f"://{config['subdomain']}",
             f".{config['domain']}",
-            f"/{config['service_path'][parser.format]}",
+            # f"/{config['service_path'][parser.format]}",
             f"/{gmd.replace(':', '/')}",
             f"/{id_prefix}{num}",
             f".{parser.format}"
@@ -91,7 +91,7 @@ def create_url(parser, config, gmd, id_prefix, num):
             f"{config['protocol']}",
             f"://{config['subdomain']}",
             f".{config['domain']}",
-            f"/{config['service_path'][parser.format]}",
+            # f"/{config['service_path'][parser.format]}",
             f":{gmd}",
             f":{id_prefix}{num}",
             f"/{parser.region}",
@@ -153,11 +153,11 @@ def main(args):
     output_path = parser.output
 
     # load YAML config
-    config = read_yaml_file('./config.yml')
+    config = read_yaml_file('./music_config.yml')
 
     # YAML config values
-    map_config = config['maps'][parser.key] # filter on CLI arg
-    filename_segments = map_config['filename_segments']
+    music_config = config['music'][parser.key] # filter on CLI arg
+    filename_segments = music_config['filename_segments']
 
     # Configure logger: set format and default level
     logging.basicConfig(
@@ -182,11 +182,11 @@ def main(args):
     # Start logger
     start_date_time = dt.datetime.now()
     logger.info(f"Start run: {start_date_time.isoformat()}")
-    logger.info(f"Digital Id: {map_config['digital_id']}")
-    logger.info(f"Manifest: {map_config['manifest']}")
+    logger.info(f"Digital Id: {music_config['digital_id']}")
+    logger.info(f"Manifest: {music_config['manifest']}")
 
     # Retrieve files
-    for path in map_config['path_segments']:
+    for path in music_config['path_segments']:
 
         gmd = path['gmd'] # General Material Designation
         id_prefix = path['id_prefix']
@@ -196,12 +196,13 @@ def main(args):
         for i in range(path['index']['start'], path['index']['stop'], 1):
 
             # Add zfill if required
-            num = str(i)
+            num = str(i) + 'u'
             if zfill_width > 0:
                 num = num.zfill(zfill_width)
 
             # Retrieve binary content
             url = create_url(parser, config, gmd, id_prefix, num)
+            print(f"\nURL={url}")
             response = requests.get(url, stream=True)
 
             # Log URL

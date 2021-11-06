@@ -1,0 +1,34 @@
+---
+protocol: http
+domain: loc.gov
+subdomain: lcweb2
+service_path:
+  jpg: image-services/iiif/service
+  gif: storage-services/service
+  jp2: storage-services/service
+  tif: storage-services/master
+music:
+  copland_mice_men:
+    digital_id: null
+    manifest: https://lcweb2.loc.gov/diglib/ihas/loc.natlib.copland.sket0018/mets.xml
+    filename_segments:
+      name:
+        - Map
+        - LOC
+        - Sanborn
+        - Ann_Arbor
+        - MI
+      year: 1888
+      vol: null
+    path_segments:
+      - gmd: music/copland/sket
+        id_prefix: sket0018/
+        part: null
+        index:
+          start: 1
+          stop: 73
+          zfill_width: 5
+# http://music.lcweb2.loc.gov/storage-services/master//copland/sket/sket0018/001u.tif
+# http://music.lcweb2.loc.gov/copland/sket/sket0018/0001u.tif
+# http://music.lcweb2.loc.gov/copland/sket/sket0018/001u.tif
+# http://lcweb2.loc.gov/music/copland/sket/sket0018/0001u.tif
